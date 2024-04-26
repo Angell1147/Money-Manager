@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upcoming Events</title>
+<style>
+body {
+    background-color:rgb(20,20,41);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 10px auto 20px auto ;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Initial scale is 0 to hide the box */
+    transition: transform 0.5s ease;
+}.container:hover{ transform: translate(-50%, -50%) scale(1.2);}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: calc(100% - 24px);
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color:rgb(20,20,41);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgb(20,20,41);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 12px;
+    background-color: #f2f2f2;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete {
+    cursor: pointer;
+    color: red;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.delete:hover {
+    opacity: 1;
+}
+
+.form-container {
+    display: none;
+}
+
+#toggle-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Increase spacing between buttons */
+}
+
+#add-task-btn,
+#view-payments-btn {
+    width: 49%;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    background-color:rgb(20,20,41);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;margin-right: 20px;
+}
+
+#view-payments-btn:hover {
+    background-color: rgb(20,20,41);
+}
+
+.form-container form {
+    margin-top: 20px;
+}
+
+.form-container form input,
+.form-container form select {
+    margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align: center;">UPCOMING PAYMENTS</h1>
+    <div id="toggle-buttons">
+        <div id="add-task-btn">➕ Add Payment</div>
+        <div id="view-payments-btn">👀 View Payments</div>
+    </div>
+    <div class="form-container">
+        <form id="todo-form">
+            <input type="text" id="task" placeholder="Enter the payment description"><br>
+            <input type="number" id="amount" placeholder="Enter amount...">
+            <input type="date" id="date"><br>
+            <select id="category">
+                <option value="">Select category</option>
+                <option value="Insurance">Insurance</option>
+                <option value="Housing">Housing</option>
+                <option value="Personal">Personal</option>
+                <option value="Vehicle">Vehicle</option>
+                <option value="Others">Others</option>
+            </select>
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+    <ul id="task-list" style="display: none;"></ul>
+</div>
+
+<script>
+window.onload = function() {
+    const container = document.querySelector('.container');
+    // Delay the appearance of the container
+    setTimeout(() => {
+        // Set initial scale to 1 to make the container visible
+        container.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, 1000); // Delay in milliseconds
+};
+
+// Function to add a new task
+function addTask(task, amount, date, category) {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `
+    <strong>${date}</strong> &nbsp &nbsp&nbsp &nbsp${category}&nbsp&nbsp&nbsp[${task}]&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRs.${amount}
+    <span class="delete">❌</span>
+  `;
+
+    document.getElementById('task-list').appendChild(listItem);
+}
+
+// Function to handle form submission
+document.getElementById('todo-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Stop propagation to prevent hiding the form
+    const taskInput = document.getElementById('task');
+    const amountInput = document.getElementById('amount');
+    const dateInput = document.getElementById('date');
+    const categoryInput = document.getElementById('category');
+
+    const task = taskInput.value;
+    const amount = amountInput.value;
+    const date = dateInput.value;
+    const category = categoryInput.value;
+
+    if (task.trim() === '' || amount.trim() === '' || date.trim() === '' || category.trim() === '') {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    addTask(task, amount, date, category);
+
+    dateInput.value = '';
+    categoryInput.value = '';
+    taskInput.value = '';
+    amountInput.value = '';
+});
+
+// Function to handle task deletion
+document.getElementById('task-list').addEventListener('click', function(e) {
+    if (e.target.classList.contains('delete')) {
+        e.target.parentElement.remove();
+    }
+});
+
+// Show/hide form when "Add Payment" button is clicked
+let addPaymentsVisible = false; // Track if "Add Payments" is visible
+document.getElementById('add-task-btn').addEventListener('click', function(e) {
+    e.stopPropagation(); // Prevent click event from reaching document
+    const formContainer = document.querySelector('.form-container');
+    if (addPaymentsVisible) {
+        // If "Add Payments" is already visible, hide it
+        formContainer.style.display = 'none';
+    } else {
+        // Otherwise, show it
+        formContainer.style.display = 'block';
+        document.getElementById('task-list').style.display = 'none';
+    }
+    addPaymentsVisible = !addPaymentsVisible; // Toggle the visibility status
+});
+
+// Show/hide task list when "View Payments" button is clicked
+document.getElementById('view-payments-btn').addEventListener('click', function(e) {
+    e.stopPropagation(); // Prevent click event from reaching document
+    const formContainer = document.querySelector('.form-container');
+    formContainer.style.display = 'none';
+    const taskList = document.getElementById('task-list');
+    if (taskList.children.length === 0) {
+        // If task list is empty, display "No data available"
+        taskList.innerHTML = '<li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspNo data available</li>';
+    } else {
+        taskList.style.display = taskList.style.display === 'none' ? 'block' : 'none';
+    }
+});
+</script>
+</body>
+</html>

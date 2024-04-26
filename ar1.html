@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Toggle</title>
+    <style>
+        .image-container {
+            text-align: center;
+            margin-top: 75px;
+        }
+
+        #toggleImage {
+            width: 800px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #toggleImage:hover {
+            transform: scale(0.9);
+        }
+        #imageText{font-size:30px;}
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img id="toggleImage" src="https://external-preview.redd.it/bIXThggRRszgN7doaN53WDf-AoYgVuJrt2FORYPpSko.jpg?auto=webp&s=9f25254c26064f71b42becb8a07c49442819c574" alt="logoar" onclick="toggleImage()">
+        <p id="imageText">THE ANDROMEDA GALAXY</p>
+    </div>
+    <script>
+        let imageIndex = 1;
+
+        function toggleImage() {
+            const image = document.getElementById('toggleImage');
+            const text = document.getElementById('imageText');
+            if (imageIndex === 1) {
+                image.src = 'https://imgix.bustle.com/inverse/98/f4/d1/a4/2948/4655/a551/1968a83b6cf5/the-triangulum-galaxy.jpeg?w=2000&auto=format&q=70&fit=max&crop=faces';
+                image.alt = 'The Triangulum Galaxy';
+                text.textContent = 'THE TRIANGULUM GALAXY';
+                imageIndex = 2;
+            } else {
+                image.src = 'https://external-preview.redd.it/bIXThggRRszgN7doaN53WDf-AoYgVuJrt2FORYPpSko.jpg?auto=webp&s=9f25254c26064f71b42becb8a07c49442819c574';
+                image.alt = 'The Andromeda Galaxy';
+                text.textContent = 'THE ANDROMEDA GALAXY';
+                imageIndex = 1;
+            }
+        }
+    </script>
+</body>
+</html>

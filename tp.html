@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <style>
+        body {
+            background-image: url(logoar123.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+        }
+
+        .asd {
+            padding: 5px;
+            margin-top: 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999; /* Ensuring the navigation is above other elements */
+        }
+
+        .asd ul {
+            overflow: auto;
+        }
+
+        .asd li {
+            list-style: none;
+            margin: 5px 20px;
+            display: inline-block;
+        }
+
+        .asd li a {
+            padding: 1px 5px 1px 0px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .fgh {
+            cursor: pointer;
+        }
+
+        .fgh:hover {
+            color: #418da3;
+        }
+
+        .rgh {
+            float: right;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999; /* Ensuring the logo is above other elements */
+        }
+
+        .white-box {
+            background-color: rgb(60, 93, 131);
+            padding: 15px 30px 15px 30px;
+            margin-top: 20px; /* Adjusted margin-top */
+            text-align: center;
+            margin-left: 30px; /* Adjusted margin-left */
+            border-radius: 10px;
+        }
+
+        .display {
+            margin-bottom: 20px;
+            padding: 20px;
+            font-size: 50px;
+            border-radius: 20px;
+        }
+
+        .display p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .plus-sign {
+            position: fixed;
+            bottom: 50px; /* Margin from the bottom */
+            right: 20px; /* Margin from the right */
+            width: 70px; /* Adjust the size as needed */
+            height: 70px; /* Adjust the size as needed */
+            cursor: pointer;
+        }
+
+        .month-scroll {
+            position: fixed;
+            top: 67%;
+            left: 30px; /* Adjusted left position */
+            transform: translateY(-50%);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-y: auto;
+            font-size: 40px; /* Adjusted font size */
+            max-height: 60%; /* Adjust the maximum height as needed */
+        }
+
+        .month-scroll ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rgh{float:right;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999; /* Ensuring the logo is above other elements */
+}
+
+        .month-box-see {
+            background-color: #92A4B3;
+        }
+
+        .month-box-saw {
+            background-color: #DAD5D2;
+        }
+
+        .month-scroll li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .month-scroll li a:hover {
+            color: #418da3;
+        }
+
+        #see {
+            background: #92A4B3;
+        }
+
+        #saw {
+            background: #DAD5D2;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="asd">
+        <ul>
+            <li><a href="tp.html" class="fgh">HOME</a></li>
+            <li><a href="#" class="fgh">STATS</a></li>
+            <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
+            <li><a href="#" class="fgh">TOTAL</a></li>
+            <li><a href="#" class="fgh">ABOUT US</a></li>
+        </ul><a href="mainpg.html">
+        <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
+    </div>
+</header>
+<div class="container">
+    <!-- Month scroll bar -->
+    <div class="month-scroll">
+        <ul>
+            <div class="month-box-see"><li><a href="#">JANUARY</a></li></div>
+            <div class="month-box-saw"><li><a href="#">FEBRUARY</a></li></div>
+            <div class="month-box-see"><li><a href="#">MARCH</a></li></div>
+            <div class="month-box-saw"><li><a href="#">APRIL</a></li></div>
+            <div class="month-box-see"><li><a href="#">MAY</a></li></div>
+            <div class="month-box-saw"><li><a href="#">JUNE</a></li></div>
+            <div class="month-box-see"><li><a href="#">JULY</a></li></div>
+            <div class="month-box-saw"><li><a href="#">AUGUST</a></li></div>
+            <div class="month-box-see"><li><a href="#">SEPTEMBER</a></li></div>
+            <div class="month-box-saw"><li><a href="#">OCTOBER</a></li></div>
+            <div class="month-box-see"><li><a href="#">NOVEMBER</a></li></div>
+            <div class="month-box-saw"><li><a href="#">DECEMBER</a></li></div>
+        </ul>
+    </div>
+    <!-- Income box -->
+    <div class="white-box">
+        <div class="display" id="income-display">
+            <p>INCOME: <span>$0.0</span></p>
+        </div>
+    </div>
+    <!-- Expense box -->
+    <div class="white-box">
+        <div class="display" id="expense-display">
+            <p>EXPENSE: <span>$0.0</span></p>
+        </div>
+    </div>
+    <!-- Total box -->
+    <div class="white-box">
+        <div class="display" id="total-display">
+            <p>TOTAL: <span>$0.0</span></p>
+        </div>
+    </div>
+</div>
+<!-- Plus sign link to another HTML file -->
+<a href="d.html">
+    <img src="pluss..jpg" class="plus-sign">
+</a>
+
+<!-- Code injected by live-server -->
+<script>
+    // Update display elements
+    var income = 0;
+    var expense = 0;
+    document.getElementById('income-display').querySelector('span').innerText = '$' + income;
+    document.getElementById('expense-display').querySelector('span').innerText = '$' + expense;
+    document.getElementById('total-display').querySelector('span').innerText = '$' + (income - expense);
+</script>
+</body>
+</html>

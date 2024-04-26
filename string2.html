@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copy to Clipboard</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    #abc {
+        width: 400px;
+        margin: 200px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    input[type="text"], button {
+        width: calc(100% - 20px);
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div id="abc">
+    <input type="text" id="copyInput" placeholder="Enter text to copy">
+    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    <button onclick="resetField()">Reset</button>
+</div>
+
+<script>
+function copyToClipboard() {
+    var copyText = document.getElementById("copyInput");
+    var textToCopy = copyText.value.trim(); // Trim removes leading/trailing spaces
+    
+    if (textToCopy === "") {
+        alert("Please enter a string to copy.");
+        return;
+    }
+    
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    document.execCommand("copy");
+    alert("Copied to clipboard: " + textToCopy);
+}
+
+function resetField() {
+    document.getElementById("copyInput").value = "";
+}
+</script>
+
+</body>
+</html>

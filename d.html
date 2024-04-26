@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Income and Expense Tracker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(20,20,41);
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative; 
+  }
+  .box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    position: relative;
+  }
+  .box:hover {
+    background-color: #f0f0f0;
+  }
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    border-radius: 10px;
+  }
+  .popup h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  #addIncome {
+    animation: throttleDown 0.5s ease forwards;
+  }
+
+  #addExpense {
+    animation: throttleUp 0.9s ease forwards;
+  }
+  .popup input[type="text"],
+  .popup input[type="number"],
+  .popup select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .mmm{
+    text-align: center;
+  }
+  @keyframes throttleDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes throttleUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .popup button {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .popup button:hover {
+    background-color: #45a049;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .reset-btn {
+    margin-top: 10px;
+    padding: 15px 30px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .reset-btn:hover {
+    background-color: #d32f2f;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="box" id="addIncome">ADD INCOME</div>
+  <div class="box" id="addExpense">ADD EXPENSE</div>
+</div>
+
+<div class="popup" id="incomePopup">
+  <span class="close" onclick="closePopup('incomePopup')">✖</span>
+  <h2 class="mmm">ADD INCOME</h2>
+  <input type="text" id="incomeDescription" placeholder="Description"><br>
+  <input type="number" id="incomeAmount" placeholder="Amount"><br>
+  
+  <select id="incomeCurrency">
+    <option value="Rupee">RUPEE</option>
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+    <option value="JPY">JPY</option>
+  </select><br>
+  <button onclick="addIncome()">Add</button>
+  <button class="reset-btn" onclick="resetForm('incomePopup')">Reset</button>
+</div>
+
+<div class="popup" id="expensePopup">
+  <span class="close" onclick="closePopup('expensePopup')">✖</span>
+  <h2 class="mmm">ADD EXPENSE</h2>
+  <input type="text" id="expenseDescription" placeholder="Description"><br>
+  <input type="number" id="expenseAmount" placeholder="Amount"><br>
+  <select id="expenseCategory">
+    <option value="Food">FOOD</option>
+    <option value="Transportation">TRANSPORT</option>
+    <option value="Entertainment">BEAUTY</option>
+    <option value="Utilities">HEALTH</option>
+    <option value="Education">EDUCATION</option>
+    <option value="Other">OTHERS</option>
+  </select><br>
+  <select id="expenseCurrency">
+    <option value="Rupee">RUPEE</option>
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+    <option value="JPY">JPY</option>
+  </select><br>
+  <button onclick="addExpense()">Add</button>
+  <button class="reset-btn" onclick="resetForm('expensePopup')">Reset</button>
+</div>
+
+<script>
+  function addIncome() {
+    var description = document.getElementById('incomeDescription').value;
+    var amount = document.getElementById('incomeAmount').value;
+    var currency = document.getElementById('incomeCurrency').value;
+    
+    if (description === '' || amount === '' || currency === '') {
+      alert('Please fill in all fields');
+      return;
+    }
+    
+    // Here you can handle the addition of income data, like sending it to a server or storing it locally
+    console.log('Income Description:', description);
+    console.log('Income Amount:', amount);
+    console.log('Currency:', currency);
+    document.getElementById('incomePopup').style.display = 'none';
+  }
+
+  function addExpense() {
+    var description = document.getElementById('expenseDescription').value;
+    var amount = document.getElementById('expenseAmount').value;
+    var category = document.getElementById('expenseCategory').value;
+    var currency = document.getElementById('expenseCurrency').value;
+    
+    if (description === '' || amount === '' || category === '' || currency === '') {
+      alert('Please fill in all fields');
+      return;
+    }
+    
+    // Here you can handle the addition of expense data, like sending it to a server or storing it locally
+    console.log('Expense Description:', description);
+    console.log('Expense Amount:', amount);
+    console.log('Category:', category);
+    console.log('Currency:', currency);
+    document.getElementById('expensePopup').style.display = 'none';
+  }
+
+  document.getElementById('addIncome').addEventListener('click', function() {
+    document.getElementById('incomePopup').style.display = 'block';
+  });
+
+  document.getElementById('addExpense').addEventListener('click', function() {
+    document.getElementById('expensePopup').style.display = 'block';
+  });
+
+  function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  function resetForm(id) {
+    document.getElementById(id).querySelectorAll('input[type=text], input[type=number], select').forEach((element) => {
+      element.value = '';
+    });
+  }
+</script>
+</body>
+</html>

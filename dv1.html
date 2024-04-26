@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Toggle</title>
+    <style>
+        .image-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #toggleImage {
+            width: 700px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #toggleImage:hover {
+            transform: scale(1.1);
+        }
+        #imagetext{ margin:20px;font-size:30px;}
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img id="toggleImage" src="https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="logoar" onclick="toggleImage()">
+        <p id="imagetext">SUNSET</p>
+    </div>
+    <script>
+        let imageIndex = 1;
+
+        function toggleImage() {
+            const image = document.getElementById('toggleImage');
+            const text = document.getElementById('imagetext');
+            if (imageIndex === 1) {
+                image.src = 'https://1721181113.rsc.cdn77.org/data/images/full/31698/wolf-moon-rises-over-glastonbury-ahead-of-met-office-severe-weather-warnings.jpg';
+                image.alt = 'MOON';
+                text.textContent='MOON';
+                imageIndex = 2;
+            } else {
+                image.src = 'https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260';
+                image.alt = 'SUNSET';
+                text.textContent='SUNSET';
+                imageIndex = 1;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carousel</title>
+<style>
+  .carousel {
+    width: 800px; /* Doubled the width for two slides */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;margin-top:17%;
+  }
+
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-item {
+    flex: 0 0 50%; /* Set each slide container to half of the carousel's width */
+    height: 300px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 300px;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel-container">
+    <div class="carousel-item">1</div>
+    <div class="carousel-item">2</div>
+    <div class="carousel-item">3</div>
+    <div class="carousel-item">4</div>
+  </div>
+  <button class="prev" onclick="prevSlide()">&#10094;</button>
+  <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<script>
+  var currentIndex = 0;
+  var slides = document.querySelectorAll('.carousel-item');
+  var totalSlides = slides.length;
+
+  function showSlide(index) {
+    if (index < 0) {
+      index = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      index = 0;
+    }
+    var offset = -index * slides[0].offsetWidth;
+    document.querySelector('.carousel-container').style.transform = 'translateX(' + offset + 'px)';
+    currentIndex = index;
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1); /* Move two slides to the left */
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1); /* Move two slides to the right */
+  }
+</script>
+
+</body>
+</html>

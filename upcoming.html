@@ -5,23 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Upcoming Events</title>
 <style>
-body {
-    background-color:rgb(20,20,41);
-    font-family: Arial, sans-serif;
+
+body
+{
+    background-image: url(logoar123.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
+.container 
+{
     max-width: 600px;
     margin: 10px auto 20px auto ;
     padding: 20px;
     border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);position: absolute;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(15, 32, 56);position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0); /* Initial scale is 0 to hide the box */
     transition: transform 0.5s ease;
-}.container:hover{ transform: translate(-50%, -50%) scale(1.2);}
+}
+     .container:hover
+    { 
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+        .asd 
+        {
+            padding: 5px;
+            margin-top: 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999; /* Ensuring the navigation is above other elements */
+        }
+
+        .asd ul 
+        {
+            overflow: auto;
+        }
+
+        .asd li 
+        {
+            list-style: none;
+            margin: 5px 20px;
+            display: inline-block;
+        }
+
+        .asd li a 
+        {
+            padding: 1px 5px 1px 0px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .fgh 
+        {
+            cursor: pointer;
+            background-color: rgb(15, 32, 56);
+        }
+
+        .fgh:hover 
+        {
+            color: #000000;
+        }
+
+        .rgh 
+        {
+            float: right;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999; /* Ensuring the logo is above other elements */
+        }
+
+
 
 input[type="text"],
 input[type="number"],
@@ -115,6 +179,21 @@ li {
 </style>
 </head>
 <body>
+
+    <header>
+        <div class="asd">
+            <ul>
+                <li><a href="home.html" class="fgh">HOME</a></li>
+                <li><a href="#" class="fgh">STATS</a></li>
+                <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
+                <li><a href="#" class="fgh">TOTAL</a></li>
+                <li><a href="#" class="fgh">ABOUT US</a></li>
+            </ul><a href="mainpg.html">
+            <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
+        </div>
+    </header>
+
+
 <div class="container">
     <h1 style="text-align: center;">UPCOMING PAYMENTS</h1>
     <div id="toggle-buttons">

@@ -5,6 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carousel</title>
 <style>
+
+    
+body {
+            background-image: url(logoar123.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+        }
+
+        .asd {
+            padding: 5px;
+            margin-top: 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999; /* Ensuring the navigation is above other elements */
+        }
+
+        .asd ul {
+            overflow: auto;
+        }
+
+        .asd li {
+            list-style: none;
+            margin: 5px 20px;
+            display: inline-block;
+        }
+
+        .asd li a {
+            padding: 1px 5px 1px 0px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .fgh {
+            cursor: pointer;
+        }
+
+        .fgh:hover {
+            color: #418da3;
+        }
+
+        .rgh {
+            float: right;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999; /* Ensuring the logo is above other elements */
+        }
+
+
   .carousel {
     width: 800px; /* Doubled the width for two slides */
     margin: 0 auto;
@@ -50,6 +112,20 @@
 </style>
 </head>
 <body>
+
+    <header>
+        <div class="asd">
+            <ul>
+                <li><a href="home.html" class="fgh">HOME</a></li>
+                <li><a href="stats.html" class="fgh">STATS</a></li>
+                <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
+                <li><a href="#" class="fgh">TOTAL</a></li>
+                <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
+            </ul><a href="mainpg.html">
+            <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
+        </div>
+    </header>
+    
 
 <div class="carousel">
   <div class="carousel-container">

@@ -63,8 +63,8 @@
         }
 
         .white-box {
-            background-color: rgb(60, 93, 131);
-            padding: 15px 30px 15px 30px;
+            background-color:rgb(119, 193, 255);
+            padding: 10px 5%;
             margin-top: 20px; /* Adjusted margin-top */
             text-align: center;
             margin-left: 30px; /* Adjusted margin-left */
@@ -94,14 +94,14 @@
 
         .month-scroll {
             position: fixed;
-            top: 67%;
+            top: 70%;
             left: 30px; /* Adjusted left position */
             transform: translateY(-50%);
             padding: 20px;
             border-radius: 10px;
             overflow-y: auto;
             font-size: 40px; /* Adjusted font size */
-            max-height: 60%; /* Adjust the maximum height as needed */
+            max-height: 55%; /* Adjust the maximum height as needed */
         }
 
         .month-scroll ul {
@@ -110,7 +110,8 @@
             margin: 0;
         }
 
-        .rgh{float:right;
+        .rgh{
+            float:right;
     position: fixed;
     top: 0;
     right: 0;
@@ -144,14 +145,17 @@
     </style>
 </head>
 <body>
+
+    <script src="home-popup.js"></script>
+
 <header>
     <div class="asd">
         <ul>
-            <li><a href="tp.html" class="fgh">HOME</a></li>
-            <li><a href="#" class="fgh">STATS</a></li>
+            <li><a href="home.html" class="fgh">HOME</a></li>
+            <li><a href="stats.html" class="fgh">STATS</a></li>
             <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
             <li><a href="#" class="fgh">TOTAL</a></li>
-            <li><a href="#" class="fgh">ABOUT US</a></li>
+            <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
         </ul><a href="mainpg.html">
         <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
     </div>
@@ -177,7 +181,7 @@
     <!-- Income box -->
     <div class="white-box">
         <div class="display" id="income-display">
-            <p>INCOME: <span>$0.0</span></p>
+            <p>INCOME: <span id="outputIncome">$0.0</span></p>
         </div>
     </div>
     <!-- Expense box -->
@@ -194,18 +198,18 @@
     </div>
 </div>
 <!-- Plus sign link to another HTML file -->
-<a href="d.html">
+<a href="home-popup.html">
     <img src="pluss..jpg" class="plus-sign">
 </a>
 
 <!-- Code injected by live-server -->
-<script>
+<!-- <script>
     // Update display elements
     var income = 0;
     var expense = 0;
     document.getElementById('income-display').querySelector('span').innerText = '$' + income;
     document.getElementById('expense-display').querySelector('span').innerText = '$' + expense;
     document.getElementById('total-display').querySelector('span').innerText = '$' + (income - expense);
-</script>
+</script> -->
 </body>
 </html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart for Expenditure</title>
+    <style>
+       body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#pie-chart-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+#input-container {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    transition: all 0.5s ease;
+}
+
+.input-container {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.input-container div {
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+}
+
+.input-container label {
+    display: inline-block;
+    width: 100px;
+    transition: all 0.5s ease;
+}
+
+.input-container input {
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: all 0.5s ease;
+}
+
+.input-container select {
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: all 0.5s ease;
+}
+
+.input-container button {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.input-container button:hover {
+    background-color: #0056b3;
+}
+
+#total-expenditure {
+    margin-top: 20px;
+    text-align: center;
+    color: #343a40;
+    transition: all 0.5s ease;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="pie-chart-container">
+            <canvas id="pie-chart"></canvas>
+        </div>
+        <div id="input-container">
+            <h1>Pie Chart for Expenditure</h1>
+            <div class="input-container">
+                <div>
+                    <label for="travel">Travel:</label>
+                    <input type="number" id="travel" value="500">
+                </div>
+                <div>
+                    <label for="beauty">Beauty:</label>
+                    <input type="number" id="beauty" value="300">
+                </div>
+                <div>
+                    <label for="food">Food:</label>
+                    <input type="number" id="food" value="434">
+                </div>
+                <div>
+                    <label for="savings">Savings:</label>
+                    <input type="number" id="savings" value="586">
+                </div>
+                <div>
+                    <label for="other">Other:</label>
+                    <input type="number" id="other" value="332">
+                </div>
+                <div>
+                    <label for="currency">Currency:</label>
+                    <select id="currency">
+                        <option value="$">US Dollar (USD)</option>
+                        <option value="₹">Indian Rupee (INR)</option>
+                       
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <button onclick="updateChart()">Update Chart</button>
+                <button onclick="calculateTotal()">Calculate Total Expenditure</button>
+                <div id="total-expenditure"></div>
+            </div>
+        </div>
+    </div>
+    <script src="chart.min.js"></script>
+    <script>
+        function updateChart() {
+            var travel = parseInt(document.getElementById('travel').value);
+            var beauty = parseInt(document.getElementById('beauty').value);
+            var food = parseInt(document.getElementById('food').value);
+            var savings = parseInt(document.getElementById('savings').value);
+            var other = parseInt(document.getElementById('other').value);
+            var currency = document.getElementById('currency').value;
+
+            var newData = [travel, beauty, food, savings, other];
+
+            chart.data.datasets[0].data = newData;
+            chart.update();
+        }
+
+        function calculateTotal() {
+    var travel = parseInt(document.getElementById('travel').value);
+    var beauty = parseInt(document.getElementById('beauty').value);
+    var food = parseInt(document.getElementById('food').value);
+    var savings = parseInt(document.getElementById('savings').value);
+    var other = parseInt(document.getElementById('other').value);
+    var total = travel + beauty + food + savings + other;
+
+    document.getElementById('total-expenditure').innerText = 'Total Expenditure: $' + total;
+}
+
+        var chart = new Chart(document.getElementById('pie-chart'), {
+            type: 'pie',
+            data: {
+                labels: ["Travel", "Beauty", "Food", "Savings", "Other"],
+                datasets: [{
+                    backgroundColor: ["#e63946", "#254BDD", "#ffbe0b", "#1d3557", "#326998"],
+                    data: [500, 300, 434, 586, 332]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Pie Chart for Expenditure'
+                },
+                responsive: true
+            }
+        });
+    </script>
+    
+</body>
+</html>

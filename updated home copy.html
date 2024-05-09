@@ -286,6 +286,15 @@ dialog{
       flex: 1 0 calc(50% - 10px); /* Updated */
   }
 
+  
+#pie-chart-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
 
     </style>
 </head>
@@ -295,7 +304,7 @@ dialog{
     <div class="asd">
         <ul>
             <li><a href="home.html" class="fgh">HOME</a></li>
-            <li><button type="button" onclick="stats()" class="fgh">STATS</a></li>
+            <li><button onclick="stats()" class="fgh">STATS</a></li>
             <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
             <li><a href="#" class="fgh">TOTAL</a></li>
             <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
@@ -344,13 +353,11 @@ dialog{
     </div>
 </div>
 
-
-
-
-
-
-
-
+<dialog id="statPopup">
+  <div id="pie-chart-container">
+    <canvas id="pie-chart"></canvas>
+</div>
+</dialog>
 
 
 <!-- Plus sign link to another HTML file -->

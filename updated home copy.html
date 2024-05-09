@@ -287,12 +287,13 @@ dialog{
   }
 
   
-#pie-chart-container {
+  #pie-chart-container {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.5s ease;
+    width: 600px;
 }
 
 
@@ -355,7 +356,8 @@ dialog{
 
 <dialog id="statPopup">
   <div id="pie-chart-container">
-    <canvas id="pie-chart"></canvas>
+    <canvas id="pie-chart" style="display: block; box-sizing: border-box; height: 500px; width: 500px;" width="1000" height="1000"></canvas>
+    <button onclick="updateChart()">Update Chart</button>
 </div>
 </dialog>
 

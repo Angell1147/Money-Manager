@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display List as Divs</title>
+<style>
+    /* Some basic styling */
+    #container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .list-item {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <h2>Add New Item</h2>
+    <form id="inputForm">
+        <label for="dateInput">Date:</label>
+        <input type="date" id="dateInput" required><br><br>
+        
+        <label for="categoryInput">Category:</label>
+        <input type="text" id="categoryInput" required><br><br>
+        
+        <label for="amountInput">Amount:</label>
+        <input type="number" id="amountInput" required><br><br>
+        
+        <label for="noteInput">Note:</label>
+        <input type="text" id="noteInput"><br><br>
+        
+        <button type="submit">Add Item</button>
+    </form>
+    
+    <h2>Items List</h2>
+    <div id="itemsList"></div>
+</div>
+
+<script>
+    // Function to add new item
+    function addItem(date, category, amount, note) {
+        const itemList = document.getElementById("itemsList");
+        
+        // Create div element for new item
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("list-item");
+        
+        // Fill div with item details
+        itemDiv.innerHTML = `
+            <p>Date: ${date}</p>
+            <p>Category: ${category}</p>
+            <p>Amount: ${amount}</p>
+            <p>Note: ${note}</p>
+        `;
+        
+        // Append new item div to items list
+        itemList.appendChild(itemDiv);
+    }
+    
+    // Event listener for form submission
+    document.getElementById("inputForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        // Get input values
+        const date = document.getElementById("dateInput").value;
+        const category = document.getElementById("categoryInput").value;
+        const amount = document.getElementById("amountInput").value;
+        const note = document.getElementById("noteInput").value;
+        
+        // Add new item
+        addItem(date, category, amount, note);
+        
+        // Reset form fields
+        document.getElementById("inputForm").reset();
+    });
+</script>
+</body>
+</html>
+

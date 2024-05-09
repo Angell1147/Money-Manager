@@ -17,6 +17,45 @@ function closeDialog()
     dialog.close()
 }
 
+const popup = document.getElementById("statPopup")
+
+function stats()
+{
+  popup.showModal()
+}
+function updateChart()
+{
+    var travel = parseInt(document.getElementById('transportation').value);
+    var beauty = parseInt(document.getElementById('entertainment').value);
+    var food = parseInt(document.getElementById('food').value);
+    var health = parseInt(document.getElementById('utilities').value);
+    var other = parseInt(document.getElementById('other').value);
+    var education = document.getElementById('education').value;
+
+    var newData = [travel, beauty, food, other, health, education];
+
+    chart.data.datasets[0].data = newData;
+    chart.update();
+
+}
+var chart = new Chart(document.getElementById('pie-chart'), {
+  type: 'pie',
+  data: {
+      labels: ["Travel", "Beauty", "Food", "Other", "Health", "Education"],
+      datasets: [{
+          backgroundColor: ["#e63946", "#254BDD", "#ffbe0b", "#326998", "#0daf5e", "#ef2727"],
+          data: [500, 300, 400, 300, 400, 500]
+      }]
+  },
+  options: {
+      title: {
+          display: true,
+          text: 'Pie Chart for Expenditure'
+      },
+      responsive: true
+  }
+});
+
 
 const displayIncome = document.getElementById("outputIncome");
 const displayExpense = document.getElementById("ouputExpense");
@@ -24,15 +63,43 @@ const displayTotal = document.getElementById("outputTotal");
 
 
 
-
-
-
-
-
-
-
-
-
+   // Function to add new item
+   function addItem(date, expenseCategory, expenseAmount, expenseDescription) {
+    const itemList = document.getElementById("itemsList");
+    
+    // Create div element for new item
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("list-item");
+    
+    // Fill div with item details
+    itemDiv.innerHTML = `
+        <p>Date: ${date}</p>
+        <p>Category: ${expenseCategory}</p>
+        <p>Amount: ${expenseAmount}</p>
+        <p>Note: ${expenseDescription}</p>
+    `;
+    
+    // Append new item div to items list
+    itemList.appendChild(itemDiv);
+}
+  // Function to add new item
+  function addItem(date, incomeAmount, incomeDescription) {
+    const itemList = document.getElementById("itemsList");
+    
+    // Create div element for new item
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("list-item");
+    
+    // Fill div with item details
+    itemDiv.innerHTML = `
+        <p>Date: ${date}</p>
+        <p>Amount: ${incomeAmount}</p>
+        <p>Note: ${incomeDescription}</p>
+    `;
+    
+    // Append new item div to items list
+    itemList.appendChild(itemDiv);
+}
 
 
 
@@ -106,25 +173,31 @@ function update(totalincome, totalexpense, totalamount )
     displayTotal.innerHTML = `₹${totalamount}`;
 }
 
-   // Function to add new item
-   function addItem(date, expenseCategory, expenseAmount, expenseDescription) {
-    const itemList = document.getElementById("itemsList");
-    
-    // Create div element for new item
-    const itemDiv = document.createElement("div");
-    itemDiv.classList.add("list-item");
-    
-    // Fill div with item details
-    itemDiv.innerHTML = `
-        <p>Date: ${date}</p>
-        <p>Category: ${expenseCategory}</p>
-        <p>Amount: ${expenseAmount}</p>
-        <p>Note: ${expenseDescription}</p>
-    `;
-    
-    // Append new item div to items list
-    itemList.appendChild(itemDiv);
-}
+document.getElementById('expensePopup').addEventListener('submitExpense', function(event) {
+  event.preventDefault();
+
+  var date = document.getElementById('date').value;
+  var category = document.getElementById('expenseCategory').value;
+  var amount = document.getElementById('expenseAmount').value;
+  var note = document.getElementById('expenseDescription').value;
+
+  var outputDiv = document.createElement('div');
+  outputDiv.classList.add('output-item');
+  outputDiv.innerHTML = `
+    <strong>Date:</strong> ${date}<br>
+    <strong>Category:</strong> ${expenseCategory}<br>
+    <strong>Amount:</strong> $${expenseAmount}<br>
+    <strong>Note:</strong> ${expenseDescription}
+  `;
+
+  document.getElementById('expenseList').appendChild(outputDiv);
+
+  // Reset form fields
+  document.getElementById('date').value = '';
+  document.getElementById('expenseCategory').value = '';
+  document.getElementById('expenseAmount').value = '';
+  document.getElementById('expenseDescription').value = '';
+});
 
   function addExpense() 
   {
@@ -197,12 +270,11 @@ function stats()
     var travel = parseInt(document.getElementById('transportation').value);
     var beauty = parseInt(document.getElementById('entertainment').value);
     var food = parseInt(document.getElementById('food').value);
-    var savings = parseInt(document.getElementById('savings').value);
     var health = parseInt(document.getElementById('utilities').value);
     var other = parseInt(document.getElementById('other').value);
     var education = document.getElementById('education').value;
 
-    var newData = [travel, beauty, food, totalamount, other, health, education];
+    var newData = [travel, beauty, food, other, health, education];
 
     chart.data.datasets[0].data = newData;
     chart.update();
@@ -211,10 +283,10 @@ function stats()
 var chart = new Chart(document.getElementById('pie-chart'), {
   type: 'pie',
   data: {
-      labels: ["Travel", "Beauty", "Food", "Savings", "Other", "Health", "Education"],
+      labels: ["Travel", "Beauty", "Food", "Other", "Health", "Education"],
       datasets: [{
-          backgroundColor: ["#e63946", "#254BDD", "#ffbe0b", "#1d3557", "#326998", "#0daf5e", "#ef2727"],
-          data: [500, 300, 400, 300, 300, 400, 500]
+          backgroundColor: ["#e63946", "#254BDD", "#ffbe0b", "#326998", "#0daf5e", "#ef2727"],
+          data: [500, 300, 400, 300, 400, 500]
       }]
   },
   options: {

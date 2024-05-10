@@ -64,7 +64,7 @@ const displayTotal = document.getElementById("outputTotal");
 
 
    // Function to add new item
-   function addItem(date, expenseCategory, expenseAmount, expenseDescription) {
+   function addItem2(date, expenseCategory, expenseAmount, expenseDescription) {
     console.log({"add":date})
     const itemList = document.getElementById("itemsList");
     
@@ -86,6 +86,32 @@ const displayTotal = document.getElementById("outputTotal");
         // Append new item div to items list
         itemList.appendChild(itemDiv);
     
+
+}  
+
+// Function to add new item
+function addItem1(date1, incomeAmount, incomeDescription) {
+ console.log({"add":date1})
+ const itemList = document.getElementById("itemsList");
+ 
+ // Create div element for new item
+ const itemDiv = document.createElement("div");
+ itemDiv.classList.add("list-item");
+ 
+ // Fill div with item details
+ itemDiv.innerHTML = `
+     <div> 
+     <p> <strong> Income: </strong> </p>
+     <p>Date: ${date1}</p>
+     </div>
+     <div>
+     <p>Amount: ${incomeAmount}</p>
+     <p>Note: ${incomeDescription}</p>
+     </div>
+ `;
+     // Append new item div to items list
+     itemList.appendChild(itemDiv);
+ 
 
 }
 //   // Function to add new item
@@ -167,6 +193,10 @@ totalamount = totalincome - totalexpense ;
 console.log("savings ", totalamount);
 
 update(totalincome, totalexpense, totalamount );
+
+var date1 = document.getElementById('date1').value;
+
+addItem1(date1, amount, description);
 
 }
 
@@ -251,7 +281,7 @@ console.log("savings ", totalamount);
 var date2 = document.getElementById('date2').value;
 
 update(totalincome, totalexpense, totalamount );
-addItem(date2, category, amount, description);
+addItem2(date2, category, amount, description);
 
 }
 

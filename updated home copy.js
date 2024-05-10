@@ -65,6 +65,7 @@ const displayTotal = document.getElementById("outputTotal");
 
    // Function to add new item
    function addItem(date, expenseCategory, expenseAmount, expenseDescription) {
+    console.log({"add":date})
     const itemList = document.getElementById("itemsList");
     
     // Create div element for new item
@@ -73,33 +74,38 @@ const displayTotal = document.getElementById("outputTotal");
     
     // Fill div with item details
     itemDiv.innerHTML = `
+        <div> 
         <p>Date: ${date}</p>
         <p>Category: ${expenseCategory}</p>
+        </div>
+        <div>
         <p>Amount: ${expenseAmount}</p>
         <p>Note: ${expenseDescription}</p>
+        </div>
     `;
+        // Append new item div to items list
+        itemList.appendChild(itemDiv);
     
-    // Append new item div to items list
-    itemList.appendChild(itemDiv);
+
 }
-  // Function to add new item
-  function addItem(date, incomeAmount, incomeDescription) {
-    const itemList = document.getElementById("itemsList");
+//   // Function to add new item
+//   function addItem(date, incomeAmount, incomeDescription) {
+//     const itemList = document.getElementById("itemsList");
     
-    // Create div element for new item
-    const itemDiv = document.createElement("div");
-    itemDiv.classList.add("list-item");
+//     // Create div element for new item
+//     const itemDiv = document.createElement("div");
+//     itemDiv.classList.add("list-item");
     
-    // Fill div with item details
-    itemDiv.innerHTML = `
-        <p>Date: ${date}</p>
-        <p>Amount: ${incomeAmount}</p>
-        <p>Note: ${incomeDescription}</p>
-    `;
+//     // Fill div with item details
+//     itemDiv.innerHTML = `
+//         <p>Date: ${date}</p>
+//         <p>Amount: ${incomeAmount}</p>
+//         <p>Note: ${incomeDescription}</p>
+//     `;
     
-    // Append new item div to items list
-    itemList.appendChild(itemDiv);
-}
+//     // Append new item div to items list
+//     itemList.appendChild(itemDiv);
+// }
 
 
 
@@ -113,7 +119,7 @@ const expenseAmount = document.getElementById("expenseAmount");
 const expenseCategory = document.getElementById("expenseCategory");
 const expenseCurrency = document.getElementById("expenseCurrency");
 const incomeAmount= document.getElementById("incomeAmount");
-const date = document.getElementById("date")
+const date = document.getElementById("date2").value;
 
 function addIncomeValue() {
 
@@ -162,8 +168,6 @@ console.log("savings ", totalamount);
 
 update(totalincome, totalexpense, totalamount );
 
-
-
 }
 
 function update(totalincome, totalexpense, totalamount )
@@ -173,10 +177,11 @@ function update(totalincome, totalexpense, totalamount )
     displayTotal.innerHTML = `₹${totalamount}`;
 }
 
-document.getElementById('expensePopup').addEventListener('submitExpense', function(event) {
+document.getElementById('expensePopup').addEventListener('submitExpense', function(event) 
+{
   event.preventDefault();
 
-  var date = document.getElementById('date').value;
+  var date = document.getElementById('date2').value;
   var category = document.getElementById('expenseCategory').value;
   var amount = document.getElementById('expenseAmount').value;
   var note = document.getElementById('expenseDescription').value;
@@ -185,18 +190,18 @@ document.getElementById('expensePopup').addEventListener('submitExpense', functi
   outputDiv.classList.add('output-item');
   outputDiv.innerHTML = `
     <strong>Date:</strong> ${date}<br>
-    <strong>Category:</strong> ${expenseCategory}<br>
-    <strong>Amount:</strong> $${expenseAmount}<br>
-    <strong>Note:</strong> ${expenseDescription}
+    <strong>Category:</strong> ${category}<br>
+    <strong>Amount:</strong> $${amount}<br>
+    <strong>Note:</strong> ${note}
   `;
 
   document.getElementById('expenseList').appendChild(outputDiv);
 
   // Reset form fields
-  document.getElementById('date').value = '';
-  document.getElementById('expenseCategory').value = '';
-  document.getElementById('expenseAmount').value = '';
-  document.getElementById('expenseDescription').value = '';
+  // document.getElementById('date').value = 'tfhghj';
+  // document.getElementById('expenseCategory').value = '';
+  // document.getElementById('expenseAmount').value = '';
+  // document.getElementById('expenseDescription').value = '';
 });
 
   function addExpense() 
@@ -243,8 +248,10 @@ document.getElementById('expensePopup').addEventListener('submitExpense', functi
 totalamount = totalincome - totalexpense ;
 console.log("savings ", totalamount);
 
+var date2 = document.getElementById('date2').value;
+
 update(totalincome, totalexpense, totalamount );
-addItem(date, expenseCategory, expenseAmount, expenseDescription);
+addItem(date2, category, amount, description);
 
 }
 

@@ -321,7 +321,7 @@ dialog{
     <div class="asd">
         <ul>
             <li><a href="home.html" class="fgh">HOME</a></li>
-            <li><a href="#" class="fgh"  onclick="stats()">STATS</a></li>
+            <li><a href="#" class="fgh"  onclick="openStats()">STATS</a></li>
             <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
             <li><a href="#" class="fgh">TOTAL</a></li>
             <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
@@ -378,7 +378,7 @@ dialog{
   <div id="pie-chart-container">
       <canvas id="pie-chart" width="400" height="400"></canvas>
       <button onclick="updateChart()">Update Chart</button>
-      <button onclick="closeDialog('statPopup')">Close</button>
+      <button onclick="closeStat()">Close</button>
   </div>
 </dialog>
 <!-- Plus sign link to another HTML file -->
@@ -495,22 +495,27 @@ dialog{
   
   const popup = document.getElementById("statPopup")
   
-  function stats()
+function openStats()
   {
     popup.showModal()
   }
+  function closeStat()
+  {
+    popup.close()
+  }
+
   const statPopup = document.getElementById("statPopup");
 
-    function showDialog() {
-        // Ensure that the chart is updated before showing the dialog
-        updateChart();
-        statPopup.showModal();
-    }
+    // function showDialog() {
+    //     // Ensure that the chart is updated before showing the dialog
+    //     updateChart();
+    //     statPopup.showModal();
+    // }
     
 
-    function closeDialog(id) {
-        document.getElementById(id).close();
-    }
+    // function closeDialog(id) {
+    //     document.getElementById(id).close();
+    // }
   
   function updateChart()
   {

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carousel</title>
+<style>body
+    {
+        background-image: url(logoar123.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .asd {
+    margin-left: 50px;
+                padding: 5px;
+                margin-top: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 999; /* Ensuring the navigation is above other elements */
+            }
+    
+            .asd ul {
+                overflow: auto;
+            }
+    
+            .asd li {
+                list-style: none;
+                margin: 5px 20px;
+                display: inline-block;
+            }
+    
+            .asd li a {
+                padding: 1px 5px 1px 0px;
+                color: white;
+                text-decoration: none;
+                font-size: 25px;
+            }
+    
+            .fgh {
+                cursor: pointer;
+            }
+    
+            .fgh:hover {
+                color: #418da3;
+            }
+    
+            .rgh {
+                float: right;
+                position: fixed;
+                top: 0;
+                right: 0;
+                z-index: 999; /* Ensuring the logo is above other elements */
+            }
+    
+    .container 
+    {
+        max-width: 600px;
+        margin: 10px auto 20px auto ;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 0px 10px rgba(15, 32, 56);position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0); /* Initial scale is 0 to hide the box */
+        transition: transform 0.5s ease;
+    }
+         .container:hover
+        { 
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select {
+        width: calc(100% - 24px);
+        margin: 10px 0;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color:rgb(20,20,41);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    button:hover {
+        background-color: rgb(20,20,41);
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    li {
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  .carousel {
+    width: 1200px; /* Increased width for three slides */
+    margin: 250px 10px 200px 120px;
+    overflow: hidden;
+   position:absolute;
+    /* Adjusted margin-top */
+  }
+
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide-container {
+    position: relative;
+    flex: 0 0 33.33%; /* Set each slide container to one-third of the carousel's width */
+    margin-right: 15px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-item {
+    height: 400px; /* Increased height of slides */
+    border-radius: 5px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 400px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    position: relative; /* Added position relative */
+    transition: transform 0.5s ease-in-out; /* Added transition for transform */
+  }
+
+  .slide-name {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color:white;
+    font-size: 20px;
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .prev {
+    left: 100;
+  }
+
+  .next {
+    right: 100;
+  }
+
+  .current {
+    transform: scale(1.2); /* Larger scale for the current slide */
+    transition: transform 0.5s ease; /* Added transition for transform */
+  }
+
+  .hidden {
+    transform: scale(0.8); /* Smaller scale for other slides */
+    transition: transform 0.5s ease; /* Added transition for transform */
+  }
+
+  .larger {
+    transform: scale(1.4); /* Larger scale for the fourth slide */
+  }
+ 
+</style>
+</head>
+<body><div class="asd">
+            <ul>
+                <li><a href="home.html" class="fgh">HOME</a></li>
+                <li><a href="stats.html" class="fgh">STATS</a></li>
+                <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
+               
+                <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
+            </ul><a href="index.html">
+            <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
+        </div>
+
+<div class="carousel">
+  <div class="carousel-container">
+    <div class="slide-container">
+      <div class="carousel-item"onclick="toggleSize(this)">
+    <img src="photo1.jpg" alt="" length="200" width="400"></div>
+      <div class="slide-name">DIVA  SHARMA</div>
+    </div>
+    <div class="slide-container">
+      <div class="carousel-item" onclick="toggleSize(this)">
+    <img src="photo2.jpg" alt="" length="180" width="400"></div>
+      <div class="slide-name">ARUSHI  RAJPUT</div>
+    </div>
+    <div class="slide-container">
+      <div class="carousel-item" onclick="toggleSize(this)"><img src="pawar.jpg" alt="" length="180" width="400"></div>
+      <div class="slide-name">ADITYA  PAWAR</div>
+    </div>
+    <div class="slide-container">
+      <div class="carousel-item" onclick="toggleSize(this)"><img src="angell.jpg" alt="" length="180" width="400"></div>
+      <div class="slide-name">ANGELL  GANDHI</div>
+    </div>
+    <!-- Add more slide containers as needed -->
+  </div>
+
+</div>
+
+<script>
+  var currentIndex = 0;
+  var slides = document.querySelectorAll('.carousel-item');
+  var totalSlides = slides.length;
+  var carouselContainer = document.querySelector('.carousel-container');
+
+  function showSlide(index) {
+    var offset = -index * (100 / totalSlides) + '%';
+    carouselContainer.style.transform = 'translateX(' + offset + ')';
+    currentIndex = index;
+  }
+
+  function toggleSize(element) {
+    if (element.classList.contains('current')) {
+      element.classList.remove('current');
+      element.classList.add('hidden');
+    } else {
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('current');
+        slides[i].classList.add('hidden');
+      }
+      element.classList.add('current');
+      element.classList.remove('hidden');
+    }
+    currentIndex = Array.from(slides).indexOf(element);
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = totalSlides - 1;
+    }
+    showSlide(currentIndex);
+  }
+
+  function nextSlide() {
+    currentIndex++;
+    if (currentIndex >= totalSlides) {
+      currentIndex = 0;
+    }
+    showSlide(currentIndex);
+  }
+
+  // Initially show the first slide
+  showSlide(currentIndex);
+</script>
+
+</body>
+</html>

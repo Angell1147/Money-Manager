@@ -17,6 +17,48 @@ body
     padding: 0;
 }
 
+.asd {
+            padding: 5px;
+            margin-top: 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999; /* Ensuring the navigation is above other elements */
+        }
+
+        .asd ul {
+            overflow: auto;
+        }
+
+        .asd li {
+            list-style: none;
+            margin: 5px 20px;
+            display: inline-block;
+        }
+
+        .asd li a {
+            padding: 1px 5px 1px 0px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .fgh {
+            cursor: pointer;
+        }
+
+        .fgh:hover {
+            color: #418da3;
+        }
+
+        .rgh {
+            float: right;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999; /* Ensuring the logo is above other elements */
+        }
+
 .container 
 {
     max-width: 600px;
@@ -34,58 +76,6 @@ body
     { 
         transform: translate(-50%, -50%) scale(1.2);
     }
-
-        .asd 
-        {
-            padding: 5px;
-            margin-top: 0px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 999; /* Ensuring the navigation is above other elements */
-        }
-
-        .asd ul 
-        {
-            overflow: auto;
-        }
-
-        .asd li 
-        {
-            list-style: none;
-            margin: 5px 20px;
-            display: inline-block;
-        }
-
-        .asd li a 
-        {
-            padding: 1px 5px 1px 0px;
-            color: white;
-            text-decoration: none;
-            font-size: 25px;
-        }
-
-        .fgh 
-        {
-            cursor: pointer;
-            background-color: rgb(15, 32, 56);
-        }
-
-        .fgh:hover 
-        {
-            color: #ffffff;
-        }
-
-        .rgh 
-        {
-            float: right;
-            position: fixed;
-            top: 0;
-            right: 0;
-            z-index: 999; /* Ensuring the logo is above other elements */
-        }
-
-
 
 input[type="text"],
 input[type="number"],
@@ -121,7 +111,6 @@ ul {
 
 li {
     padding: 12px;
-    background-color: #f2f2f2;
     margin-bottom: 10px;
     border-radius: 5px;
     display: flex;
@@ -175,6 +164,12 @@ li {
 .form-container form select {
     margin-bottom: 20px;
 }
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 
 </style>
 </head>
@@ -184,11 +179,11 @@ li {
         <div class="asd">
             <ul>
                 <li><a href="home.html" class="fgh">HOME</a></li>
-                <li><a href="#" class="fgh">STATS</a></li>
+                <li><a href="stats.html" class="fgh">STATS</a></li>
                 <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
                 <li><a href="#" class="fgh">TOTAL</a></li>
-                <li><a href="#" class="fgh">ABOUT US</a></li>
-            </ul><a href="mainpg.html">
+                <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
+            </ul><a href="index.html">
             <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
         </div>
     </header>
@@ -200,7 +195,8 @@ li {
         <div id="add-task-btn">➕ Add Payment</div>
         <div id="view-payments-btn">👀 View Payments</div>
     </div>
-    <div class="form-container">
+    <div class="form-container" id="form-container">
+        <span class="close" onclick="closePopup('form-container')">✖</span>
         <form id="todo-form">
             <input type="text" id="task" placeholder="Enter the payment description"><br>
             <input type="number" id="amount" placeholder="Enter amount...">
@@ -220,6 +216,11 @@ li {
 </div>
 
 <script>
+
+function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
 window.onload = function() {
     const container = document.querySelector('.container');
     // Delay the appearance of the container
@@ -296,10 +297,12 @@ document.getElementById('view-payments-btn').addEventListener('click', function(
     const formContainer = document.querySelector('.form-container');
     formContainer.style.display = 'none';
     const taskList = document.getElementById('task-list');
-    if (taskList.children.length === 0) {
+    if (taskList.children.length === 0) 
+    {
         // If task list is empty, display "No data available"
         taskList.innerHTML = '<li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspNo data available</li>';
-    } else {
+    } else 
+    {
         taskList.style.display = taskList.style.display === 'none' ? 'block' : 'none';
     }
 });

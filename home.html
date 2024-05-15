@@ -3,163 +3,335 @@
 <head>
     <title>Portfolio</title>
     <style>
-        body {
-            background-image: url(logoar123.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+          background-image: url(logoar123.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-attachment: fixed;
+          background-size: cover;
+          margin: 0;
+          padding: 0;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-            display: flex;
-        }
+      .container {
+          width: 100vw;
+          margin: 50px 20px 0px 70px;
+          padding: 20px;
+          display: flex;
+      }
 
-        .asd {
-            padding: 5px;
-            margin-top: 0px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 999; /* Ensuring the navigation is above other elements */
-        }
+      .asd {
+          padding: 5px;
+          margin-top: 0px;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 999; /* Ensuring the navigation is above other elements */
+      }
 
-        .asd ul {
-            overflow: auto;
-        }
+      .asd ul {
+          overflow: auto;
+      }
 
-        .asd li {
-            list-style: none;
-            margin: 5px 20px;
-            display: inline-block;
-        }
+      .asd li {
+          list-style: none;
+          margin: 5px 20px;
+          display: inline-block;
+      }
 
-        .asd li a {
-            padding: 1px 5px 1px 0px;
-            color: white;
-            text-decoration: none;
-            font-size: 25px;
-        }
+      .asd li a {
+          padding: 1px 5px 1px 0px;
+          color: white;
+          text-decoration: none;
+          font-size: 25px;
+      }
 
-        .fgh {
-            cursor: pointer;
-        }
+      .fgh {
+          cursor: pointer;
+      }
 
-        .fgh:hover {
-            color: #418da3;
-        }
+      .fgh:hover {
+          color: #418da3;
+      }
 
-        .rgh {
-            float: right;
-            position: fixed;
-            top: 0;
-            right: 0;
-            z-index: 999; /* Ensuring the logo is above other elements */
-        }
+      .rgh {
+          float: right;
+          position: fixed;
+          top: 0;
+          right: 0;
+          z-index: 999; /* Ensuring the logo is above other elements */
+      }
 
-        .white-box {
-            background-color:rgb(119, 193, 255);
-            padding: 10px 5%;
-            margin-top: 20px; /* Adjusted margin-top */
-            text-align: center;
-            margin-left: 30px; /* Adjusted margin-left */
-            border-radius: 10px;
-        }
+      .white-box {
+          background-color:rgb(119, 193, 255);
+          padding: 10px 5%;
+          margin-top: 20px; /* Adjusted margin-top */
+          text-align: center;
+          margin-left: 30px; /* Adjusted margin-left */
+          border-radius: 10px;
+      }
 
-        .display {
-            margin-bottom: 20px;
-            padding: 20px;
-            font-size: 50px;
-            border-radius: 20px;
-        }
+      .display {
+          margin-bottom: 20px;
+          padding: 20px;
+          font-size: 50px;
+          border-radius: 20px;
+      }
 
-        .display p {
-            margin: 5px 0;
-            font-weight: bold;
-        }
+      .display p {
+          margin: 5px 0;
+          font-weight: bold;
+      }
 
-        .plus-sign {
-            position: fixed;
-            bottom: 50px; /* Margin from the bottom */
-            right: 20px; /* Margin from the right */
-            width: 70px; /* Adjust the size as needed */
-            height: 70px; /* Adjust the size as needed */
-            cursor: pointer;
-        }
+      .plus-sign {
+          position: fixed;
+          bottom: 50px; /* Margin from the bottom */
+          right: 20px; /* Margin from the right */
+          width: 70px; /* Adjust the size as needed */
+          height: 70px; /* Adjust the size as needed */
+          cursor: pointer;
+      }
 
-        .month-scroll {
-            position: fixed;
-            top: 70%;
-            left: 30px; /* Adjusted left position */
-            transform: translateY(-50%);
-            padding: 20px;
-            border-radius: 10px;
-            overflow-y: auto;
-            font-size: 40px; /* Adjusted font size */
-            max-height: 55%; /* Adjust the maximum height as needed */
-        }
+      .month-scroll {
+          position: fixed;
+          top: 70%;
+          left: 30px; /* Adjusted left position */
+          transform: translateY(-50%);
+          padding: 20px;
+          border-radius: 10px;
+          overflow-y: auto;
+          font-size: 40px; /* Adjusted font size */
+          max-height: 55%; /* Adjust the maximum height as needed */
+      }
 
-        .month-scroll ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+      .month-scroll ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
 
-        .rgh{
-            float:right;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 999; /* Ensuring the logo is above other elements */
+      .rgh{
+          float:right;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999; /* Ensuring the logo is above other elements */
 }
 
-        .month-box-see {
-            background-color: #92A4B3;
-        }
+      .month-box-see {
+          background-color: #92A4B3;
+      }
 
-        .month-box-saw {
-            background-color: #DAD5D2;
-        }
+      .month-box-saw {
+          background-color: #DAD5D2;
+      }
 
-        .month-scroll li a {
-            color: black;
-            text-decoration: none;
-        }
+      .month-scroll li a {
+          color: black;
+          text-decoration: none;
+      }
 
-        .month-scroll li a:hover {
-            color: #418da3;
-        }
+      .month-scroll li a:hover {
+          color: #418da3;
+      }
 
-        #see {
-            background: #92A4B3;
-        }
+      #see {
+          background: #92A4B3;
+      }
 
-        #saw {
-            background: #DAD5D2;
-        }
+      #saw {
+          background: #DAD5D2;
+      }
+
+           
+.box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  position: relative;
+}
+.box:hover {
+  background-color: #f0f0f0;
+}
+.popup {
+  display: none;
+  position: fixed;
+  top: 70%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  border-radius: 10px;margin:auto ;
+}
+.popup h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+#addIncome {
+  animation: throttleDown 0.5s ease forwards;
+}
+
+#addExpense {
+  animation: throttleUp 0.9s ease forwards;
+}
+.popup input[type="text"],
+.popup input[type="number"],
+.popup select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.mmm{
+  text-align: center;
+}
+@keyframes throttleDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes throttleUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.popup button {
+  padding: 15px 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.popup button:hover {
+  background-color: #45a049;
+}
+.close {
+  
+  top: 100px;
+  right: 300px;
+  cursor: pointer;
+}
+.reset-btn {
+  margin-top: 10px;
+  padding: 15px 30px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+.reset-btn:hover {
+  background-color: #d32f2f;
+}
+
+dialog{
+  margin:300px 20px 10px 500px;
+  width: 50vw;
+  height: 55vh;
+
+  gap: 1rem;
+  background-color: #51A8B4;
+}.cross{ margin:0px 2px 0px 80px ;background:no-background;height:20px;}
+
+/* dialog > *{
+  align-content: center;
+} */
+
+/* Some basic styling */
+#container {
+      max-width: 600px;
+      height: fit-content;
+      margin: 0 auto;
+  }
+  .list-container { /* Added */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+  }
+  .list-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 0px 400px  ;
+      flex: 1 0 calc(50% - 10px);
+      display: flex;
+      justify-content: space-evenly;
+      height: 75px;
+      /* Updated */
+  }
+
+  
+
+
+#pie-chart {
+    max-width: 100%; /* Ensure the chart fits within the container */
+    max-height: 100%; /* Ensure the chart fits within the container */
+}
+#pie-chart-container {
+    width: 500px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#itemsList {
+  height: 400px;
+  color: white;
+  overflow-y: auto;
+}
+
+
     </style>
 </head>
 <body>
-
-    <script src="home-popup.js"></script>
 
 <header>
     <div class="asd">
         <ul>
             <li><a href="home.html" class="fgh">HOME</a></li>
-            <li><a href="stats.html" class="fgh">STATS</a></li>
+            <li><a href="#" class="fgh"  onclick="openStats()">STATS</a></li>
             <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
             <li><a href="#" class="fgh">TOTAL</a></li>
             <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
-        </ul><a href="mainpg.html">
-        <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
+        </ul><a href="index.html">
+        <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="80" width="80"></div></a>
     </div>
 </header>
+
+<script src="chart.min.js"></script>
+
 <div class="container">
     <!-- Month scroll bar -->
     <div class="month-scroll">
@@ -181,35 +353,509 @@
     <!-- Income box -->
     <div class="white-box">
         <div class="display" id="income-display">
-            <p>INCOME: <span id="outputIncome">$0.0</span></p>
+            <p>INCOME: <span id="outputIncome">0.0</span></p>
         </div>
     </div>
     <!-- Expense box -->
     <div class="white-box">
         <div class="display" id="expense-display">
-            <p>EXPENSE: <span>$0.0</span></p>
+            <p>EXPENSE: <span id="ouputExpense">0.0</span></p>
         </div>
     </div>
     <!-- Total box -->
     <div class="white-box">
         <div class="display" id="total-display">
-            <p>TOTAL: <span>$0.0</span></p>
+            <p>TOTAL: <span id="outputTotal">0.0</span></p>
         </div>
     </div>
 </div>
-<!-- Plus sign link to another HTML file -->
-<a href="home-popup.html">
-    <img src="pluss..jpg" class="plus-sign">
-</a>
 
-<!-- Code injected by live-server -->
-<!-- <script>
-    // Update display elements
-    var income = 0;
-    var expense = 0;
-    document.getElementById('income-display').querySelector('span').innerText = '$' + income;
-    document.getElementById('expense-display').querySelector('span').innerText = '$' + expense;
-    document.getElementById('total-display').querySelector('span').innerText = '$' + (income - expense);
-</script> -->
+
+</dialog>
+
+
+<dialog id="statPopup" padding="20 20 20 20">
+  <div id="pie-chart-container">
+      <canvas id="pie-chart" width="400" height="400"></canvas>
+      <button onclick="updateChart()">Update Chart</button>
+      <button onclick="closeStat()">Close</button>
+  </div>
+</dialog>
+<!-- Plus sign link to another HTML file -->
+<button onclick="showDialog()">
+    <img src="pluss..jpg" class="plus-sign" id="plus-sign">
+</button>
+
+<dialog id="plusPopup">
+
+    <div class="container">
+        <div class="box" id="addIncome">ADD INCOME</div>
+        <div class="box" id="addExpense">ADD EXPENSE</div>
+        <button onclick="closeDialog()" class="cross">✖</button>
+
+      </div>
+
+
+
+    <div class="popup" id="incomePopup">
+        <span class="close" onclick="closePopup('incomePopup')">✖</span>
+        <h2 class="mmm">ADD INCOME</h2>
+        <input type="date" id="date1"/><br/>
+        <input type="text" id="incomeDescription" placeholder="Description"><br>
+        <input type="number" id="incomeAmount" placeholder="Amount"><br>
+
+        <select id="incomeCurrency">
+          <option value="Rupee">RUPEE</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+        </select><br>
+        <button onclick="addIncomeValue()"> Add</button>
+        <button class="reset-btn" onclick="resetForm('incomePopup')"> Reset</button>
+      </div>
+
+      <div class="popup" id="expensePopup">
+        <span class="close" onclick="closePopup('expensePopup')">✖</span>
+        <h2 class="mmm">ADD EXPENSE</h2>
+        <input type="date" id="date2"><br>
+        <input type="text" id="expenseDescription" placeholder="Description"><br>
+        <input type="number" id="expenseAmount" placeholder="Amount"><br>
+        
+        <select id="expenseCategory">
+          <option id="food" value="Food">FOOD</option>
+          <option id="transportation" value="Transportation">TRANSPORT</option>
+          <option id="entertainment" value="Entertainment">BEAUTY</option>
+          <option id="utilities" value="Utilities">HEALTH</option>
+          <option id="education" value="Education">EDUCATION</option>
+          <option id="other" value="Other">OTHERS</option>
+        </select><br>
+        <select id="expenseCurrency">
+          <option value="Rupee">RUPEE</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+        </select><br>
+        <button type="submit" id="submitExpense" onclick="addExpense()">Add</button>
+        <button class="reset-btn" onclick="resetForm('expensePopup')">Reset</button>
+      </div>
+
+</dialog>
+    <div id="itemsList" class="list-container"></div>
+    <!-- <div class="output" id="expenseList"></div> -->
+  <!-- <script>
+    document.getElementById('expensePopup').addEventListener('submitExpense', function(event) {
+      event.preventDefault();
+
+      var date = document.getElementById('date').value;
+      var category = document.getElementById('expenseCategory').value;
+      var amount = document.getElementById('expenseAmount').value;
+      var note = document.getElementById('expenseDescription').value;
+
+      var outputDiv = document.createElement('div');
+      outputDiv.classList.add('output-item');
+      outputDiv.innerHTML = `
+        <strong>Date:</strong> ${date}<br>
+        <strong>Category:</strong> ${expenseCategory}<br>
+        <strong>Amount:</strong> $${expenseAmount}<br>
+        <strong>Note:</strong> ${expenseDescription}
+      `;
+
+      document.getElementById('expenseList').appendChild(outputDiv);
+
+      // Reset form fields
+      document.getElementById('date').value = '';
+      document.getElementById('expenseCategory').value = '';
+      document.getElementById('expenseAmount').value = '';
+      document.getElementById('expenseDescription').value = '';
+
+      console.log('date:', date);
+    });
+  </script> -->
+
+<script >let expense = [];
+  let income = [];
+  let totalincome = 0;
+  let totalexpense = 0;
+  let totalamount = 0;
+  
+  
+  //======================= Dialog for income/expense ====================== //
+  const dialog = document.getElementById("plusPopup")
+  
+  function showDialog()
+  {
+      dialog.showModal()
+  }
+  function closeDialog()
+  {
+      dialog.close()
+  }
+  
+  const popup = document.getElementById("statPopup")
+  
+  function openStats()
+  {
+    popup.showModal()
+  }
+  function closeStat()
+  {
+    popup.close()
+  }
+
+    // function showDialog() {
+    //     // Ensure that the chart is updated before showing the dialog
+    //     updateChart();
+    //     statPopup.showModal();
+    // }
+    
+
+    // function closeDialog(id) {
+    //     document.getElementById(id).close();
+    // }
+  
+  function updateChart()
+  {
+      var travel = parseInt(document.getElementById('transportation').value);
+      var beauty = parseInt(document.getElementById('entertainment').value);
+      var food = parseInt(document.getElementById('food').value);
+      var health = parseInt(document.getElementById('utilities').value);
+      var other = parseInt(document.getElementById('other').value);
+      var education = document.getElementById('education').value;
+  
+      var newData = [travel, beauty, food, other, health, education];
+  
+      chart.data.datasets[0].data = newData;
+      chart.update();
+  
+  }
+  
+  var chart = new Chart(document.getElementById('pie-chart'), {
+    type: 'pie',
+    data: {
+        labels: ["Travel", "Beauty", "Food", "Other", "Health", "Education"],
+        datasets: [{
+            backgroundColor: ["#e63946", "#254BDD", "#ffbe0b", "#326998", "#0daf5e", "#ef2727"],
+            data: [300, 100, 400, 50, 200, 150]
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Pie Chart for Expenditure'
+        },
+        responsive: true
+    }
+  });
+  
+  
+  const displayIncome = document.getElementById("outputIncome");
+  const displayExpense = document.getElementById("ouputExpense");
+  const displayTotal = document.getElementById("outputTotal");
+  
+  
+  
+     // Function to add new item
+     function addItem2(date, expenseCategory, expenseAmount, expenseDescription) {
+      console.log({"add":date})
+      const itemList = document.getElementById("itemsList");
+      
+      // Create div element for new item
+      const itemDiv = document.createElement("div");
+      itemDiv.classList.add("list-item");
+      
+      // Fill div with item details
+      itemDiv.innerHTML = `
+          <div> 
+          <p>Date: ${date}</p>
+          <p>Category: ${expenseCategory}</p>
+          </div>
+          <div>
+          <p>Amount: ${expenseAmount}</p>
+          <p>Note: ${expenseDescription}</p>
+          </div>
+      `;
+          // Append new item div to items list
+          itemList.appendChild(itemDiv);
+      
+  
+  }  
+  
+  // Function to add new item
+  function addItem1(date1, incomeAmount, incomeDescription) {
+   console.log({"add":date1})
+   const itemList = document.getElementById("itemsList");
+   
+   // Create div element for new item
+   const itemDiv = document.createElement("div");
+   itemDiv.classList.add("list-item");
+   
+   // Fill div with item details
+   itemDiv.innerHTML = `
+       <div> 
+       <p> <strong> Income: </strong> </p>
+       <p>Date: ${date1}</p>
+       </div>
+       <div>
+       <p>Amount: ${incomeAmount}</p>
+       <p>Note: ${incomeDescription}</p>
+       </div>
+   `;
+       // Append new item div to items list
+       itemList.appendChild(itemDiv);
+   
+  
+  }
+  //   // Function to add new item
+  //   function addItem(date, incomeAmount, incomeDescription) {
+  //     const itemList = document.getElementById("itemsList");
+      
+  //     // Create div element for new item
+  //     const itemDiv = document.createElement("div");
+  //     itemDiv.classList.add("list-item");
+      
+  //     // Fill div with item details
+  //     itemDiv.innerHTML = `
+  //         <p>Date: ${date}</p>
+  //         <p>Amount: ${incomeAmount}</p>
+  //         <p>Note: ${incomeDescription}</p>
+  //     `;
+      
+  //     // Append new item div to items list
+  //     itemList.appendChild(itemDiv);
+  // }
+  
+  
+  
+  
+  const incomeCurrency = document.getElementById("incomeCurrency");
+  // const addIncome = document.getElementById("addIncome");
+  // const addExpense = document.getElementById("addExpense");
+  const incomeDescription = document.getElementById("incomeDescription");
+  const expenseDescription = document.getElementById("expenseDescription");
+  const expenseAmount = document.getElementById("expenseAmount");
+  const expenseCategory = document.getElementById("expenseCategory");
+  const expenseCurrency = document.getElementById("expenseCurrency");
+  const incomeAmount= document.getElementById("incomeAmount");
+  const date = document.getElementById("date2").value;
+  
+  function addIncomeValue() {
+  
+      const description = document.getElementById('incomeDescription').value;
+      const amount = document.getElementById('incomeAmount').value;
+      const currency = document.getElementById('incomeCurrency').value;
+      
+      if (description === '' || amount === '' || currency === '') 
+      {
+          alert('Please fill in all fields');
+          return;
+      }
+  
+      if (amount <= 0)
+        {
+          alert('input invalid');
+          return;
+        }
+  
+       // Here you can handle the addition of income data, like sending it to a server or storing it locally
+       console.log('Income Description:', description);
+       console.log('Income Amount:', amount);
+       console.log('Currency:', currency);
+       document.getElementById('incomePopup').style.display = 'none';
+  
+  
+  //======== calculation of total income =============
+  
+      income.push(incomeAmount.value);
+      income = income.map(Number);
+      console.log(income);
+  
+      totalincome = 0;
+      for (let i = 0; i < income.length; i++) 
+      {
+        totalincome = totalincome + income[i];
+      }
+  
+    // Output the income
+    console.log("The sum of income is:", totalincome);
+  
+    //=========== calculation of savings ============
+  
+  totalamount = totalincome - totalexpense ;
+  console.log("savings ", totalamount);
+  
+  update(totalincome, totalexpense, totalamount );
+  
+  var date1 = document.getElementById('date1').value;
+  
+  addItem1(date1, amount, description);
+  
+  }
+  
+  function update(totalincome, totalexpense, totalamount )
+  {
+      displayIncome.innerHTML = `₹${totalincome}`;
+      displayExpense.innerHTML = `₹${totalexpense}`;
+      displayTotal.innerHTML = `₹${totalamount}`;
+  }
+  
+  document.getElementById('expensePopup').addEventListener('submitExpense', function(event) 
+  {
+    event.preventDefault();
+  
+    var date = document.getElementById('date2').value;
+    var category = document.getElementById('expenseCategory').value;
+    var amount = document.getElementById('expenseAmount').value;
+    var note = document.getElementById('expenseDescription').value;
+  
+    var outputDiv = document.createElement('div');
+    outputDiv.classList.add('output-item');
+    outputDiv.innerHTML = `
+      <strong>Date:</strong> ${date}<br>
+      <strong>Category:</strong> ${category}<br>
+      <strong>Amount:</strong> $${amount}<br>
+      <strong>Note:</strong> ${note}
+    `;
+  
+    document.getElementById('expenseList').appendChild(outputDiv);
+  
+    // Reset form fields
+    // document.getElementById('date').value = 'tfhghj';
+    // document.getElementById('expenseCategory').value = '';
+    // document.getElementById('expenseAmount').value = '';
+    // document.getElementById('expenseDescription').value = '';
+  });
+  
+    function addExpense() 
+    {
+      var description = document.getElementById('expenseDescription').value;
+      var amount = document.getElementById('expenseAmount').value;
+      var category = document.getElementById('expenseCategory').value;
+      var currency = document.getElementById('expenseCurrency').value;
+      
+      if (description === '' || amount === '' || category === '' || currency === '') {
+        alert('Please fill in all fields');
+        return;
+      }
+  
+      if (amount <= 0)
+        {
+          alert('input invalid');
+          return;
+        }
+      
+      // Here you can handle the addition of expense data, like sending it to a server or storing it locally
+      console.log('Expense Description:', description);
+      console.log('Expense Amount:', amount);
+      console.log('Category:', category);
+      console.log('Currency:', currency);
+      document.getElementById('expensePopup').style.display = 'none';
+  
+      expense.push(expenseAmount.value);
+      expense = expense.map(Number);
+      console.log(expense); 
+  
+      totalexpense = 0;
+      for (let j = 0; j < expense.length; j++) 
+      {
+        totalexpense = totalexpense + expense[j];
+      }
+    
+    // Output the expense
+    console.log("The sum of expense is:", totalexpense);
+  
+  
+    //=========== calculation of savings ============
+  
+  totalamount = totalincome - totalexpense ;
+  console.log("savings ", totalamount);
+  
+  var date2 = document.getElementById('date2').value;
+  
+  update(totalincome, totalexpense, totalamount );
+  addItem2(date2, category, amount, description);
+  
+  }
+  
+    document.getElementById('addIncome').addEventListener('click', function() {
+      document.getElementById('incomePopup').style.display = 'block';
+    });
+  
+    document.getElementById('addExpense').addEventListener('click', function() {
+      document.getElementById('expensePopup').style.display = 'block';
+    });
+  
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  
+    function resetForm(id) {
+      document.getElementById(id).querySelectorAll('input[type=text], input[type=number], select').forEach((element) => {
+        element.value = '';
+      });
+  
+//   function stats()
+//   {
+//       var travel = parseInt(document.getElementById('transportation').value);
+//       var beauty = parseInt(document.getElementById('entertainment').value);
+//       var food = parseInt(document.getElementById('food').value);
+//       var health = parseInt(document.getElementById('utilities').value);
+//       var other = parseInt(document.getElementById('other').value);
+//       var education = document.getElementById('education').value;
+  
+//       var newData = [travel, beauty, food, other, health, education];
+  
+//       chart.data.datasets[0].data = newData;
+//       chart.update();
+  
+//   }
+//   var chart = new Chart(document.getElementById('pie-chart'), {
+//     type: 'pie',
+//     data: {
+//         labels: ["Travel", "Beauty", "Food", "Other", "Health", "Education"],
+//         datasets: [{
+//             backgroundColor: ["#e63946", "#254BDD", "#ffbe0b", "#326998", "#0daf5e", "#ef2727"],
+//             data: [0, 300, 400, 300, 400, 900]
+//         }]
+//     },
+//     options: {
+//         title: {
+//             display: true,
+//             text: 'Pie Chart for Expenditure'
+//         },
+//         responsive: true
+//     }
+//   });
+  
+  
+
+  
+  
+  //================ Display outputs =================
+  
+  // document.getElementById("outputIncome").innerHTML = totalincome;
+  // document.getElementById("outputExpense").innerHTML = totalexpense;
+  // document.getElementById("outputSaving").innerHTML = totalamount;
+  
+  
+  // const incomeCurrency = document.getElementById("incomeCurrency");
+  // const incomeDescription = document.getElementById("incomeDescription");
+  // const expenseDescription = document.getElementById("expenseDescription");
+  // const expenseAmount = document.getElementById("expenseAmount");
+  // const expenseCategory = document.getElementById("expenseCategory");
+  // const expenseCurrency = document.getElementById("expenseCurrency");
+  // const incomeAmount= document.getElementById("incomeAmount");
+  // const date = document.getElementById("date")
+  
+  
+  
+  
+  
+  document.getElementById('income-display').querySelector('span').innerText = '$' + totalincomeincome;
+  document.getElementById('expense-display').querySelector('span').innerText = '$' + totalexpenseexpense;
+  document.getElementById('total-display').querySelector('span').innerText = '$' + totalamount;
+  }</script>
+
 </body>
 </html>

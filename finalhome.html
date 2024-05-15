@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <style>
+        body {
+            background-image: url(logoar123.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100vw;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+        }
+
+        .asd {
+            padding: 5px;
+            margin-top: 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999; /* Ensuring the navigation is above other elements */
+        }
+
+        .asd ul {
+            overflow: auto;
+        }
+
+        .asd li {
+            list-style: none;
+            margin: 5px 20px;
+            display: inline-block;
+        }
+
+        .asd li a {
+            padding: 1px 5px 1px 0px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .fgh {
+            cursor: pointer;
+        }
+
+        .fgh:hover {
+            color: #418da3;
+        }
+
+        .rgh {
+            float: right;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 999; /* Ensuring the logo is above other elements */
+        }
+
+        .white-box {
+            background-color:rgb(119, 193, 255);
+            padding: 10px 5%;
+            margin-top: 20px; /* Adjusted margin-top */
+            text-align: center;
+            margin-left: 30px; /* Adjusted margin-left */
+            border-radius: 10px;
+        }
+
+        .display {
+            margin-bottom: 20px;
+            padding: 20px;
+            font-size: 50px;
+            border-radius: 20px;
+        }
+
+        .display p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .plus-sign {
+            position: fixed;
+            bottom: 50px; /* Margin from the bottom */
+            right: 20px; /* Margin from the right */
+            width: 70px; /* Adjust the size as needed */
+            height: 70px; /* Adjust the size as needed */
+            cursor: pointer;
+        }
+
+        .month-scroll {
+            position: fixed;
+            top: 70%;
+            left: 30px; /* Adjusted left position */
+            transform: translateY(-50%);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-y: auto;
+            font-size: 40px; /* Adjusted font size */
+            max-height: 55%; /* Adjust the maximum height as needed */
+        }
+
+        .month-scroll ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rgh{
+            float:right;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999; /* Ensuring the logo is above other elements */
+}
+
+        .month-box-see {
+            background-color: #92A4B3;
+        }
+
+        .month-box-saw {
+            background-color: #DAD5D2;
+        }
+
+        .month-scroll li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .month-scroll li a:hover {
+            color: #418da3;
+        }
+
+        #see {
+            background: #92A4B3;
+        }
+
+        #saw {
+            background: #DAD5D2;
+        }
+
+             
+  .box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    position: relative;
+  }
+  .box:hover {
+    background-color: #f0f0f0;
+  }
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    border-radius: 10px;
+  }
+  .popup h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  #addIncome {
+    animation: throttleDown 0.5s ease forwards;
+  }
+
+  #addExpense {
+    animation: throttleUp 0.9s ease forwards;
+  }
+  .popup input[type="text"],
+  .popup input[type="number"],
+  .popup select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .mmm{
+    text-align: center;
+  }
+  @keyframes throttleDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes throttleUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .popup button {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .popup button:hover {
+    background-color: #45a049;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .reset-btn {
+    margin-top: 10px;
+    padding: 15px 30px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .reset-btn:hover {
+    background-color: #d32f2f;
+  }
+
+  dialog{
+    width: 50vw;
+    height: 50vh;
+   
+    gap: 1rem;
+    background-color: #418da3;
+  }
+
+  /* dialog > *{
+    align-content: center;
+  } */
+
+    /* Some basic styling */
+    #container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .list-container { /* Added */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .list-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 0px 400px  ;
+        flex: 1 0 calc(50% - 10px); /* Updated */
+    }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="asd">
+        <ul>
+            <li><a href="home.html" class="fgh">HOME</a></li>
+            <li><button type="button" onclick="stats()" class="fgh">STATS</a></li>
+            <li><a href="newstatsup.html"class="fgh">STATS</a></li>    
+            <li><a href="upcoming.html" class="fgh">UPCOMING PAYMENTS</a></li>
+            <li><a href="#" class="fgh">TOTAL</a></li>
+            <li><a href="aboutUs.html" class="fgh">ABOUT US</a></li>
+        </ul><a href="index.html">
+        <div class="rgh"><img src="Screenshot 2024-04-19 120854.png" length="100" width="100"></div></a>
+    </div>
+</header>
+
+<script src="chart.min.js"></script>
+
+<div class="container">
+    <!-- Month scroll bar -->
+    <div class="month-scroll">
+        <ul>
+            <div class="month-box-see"><li><a href="#">JANUARY</a></li></div>
+            <div class="month-box-saw"><li><a href="#">FEBRUARY</a></li></div>
+            <div class="month-box-see"><li><a href="#">MARCH</a></li></div>
+            <div class="month-box-saw"><li><a href="#">APRIL</a></li></div>
+            <div class="month-box-see"><li><a href="#">MAY</a></li></div>
+            <div class="month-box-saw"><li><a href="#">JUNE</a></li></div>
+            <div class="month-box-see"><li><a href="#">JULY</a></li></div>
+            <div class="month-box-saw"><li><a href="#">AUGUST</a></li></div>
+            <div class="month-box-see"><li><a href="#">SEPTEMBER</a></li></div>
+            <div class="month-box-saw"><li><a href="#">OCTOBER</a></li></div>
+            <div class="month-box-see"><li><a href="#">NOVEMBER</a></li></div>
+            <div class="month-box-saw"><li><a href="#">DECEMBER</a></li></div>
+        </ul>
+    </div>
+    <!-- Income box -->
+    <div class="white-box">
+        <div class="display" id="income-display">
+            <p>INCOME: <span id="outputIncome">0.0</span></p>
+        </div>
+    </div>
+    <!-- Expense box -->
+    <div class="white-box">
+        <div class="display" id="expense-display">
+            <p>EXPENSE: <span id="ouputExpense">0.0</span></p>
+        </div>
+    </div>
+    <!-- Total box -->
+    <div class="white-box">
+        <div class="display" id="total-display">
+            <p>TOTAL: <span id="outputTotal">0.0</span></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Plus sign link to another HTML file -->
+<button onclick="showDialog()">
+    <img src="pluss..jpg" class="plus-sign" id="plus-sign">
+</button>
+
+<dialog id="plusPopup">
+
+    <div class="container">
+        <div class="box" id="addIncome">ADD INCOME</div>
+        <div class="box" id="addExpense">ADD EXPENSE</div>
+        
+      </div>
+
+      <button onclick="closeDialog()"> Cancel </button>
+
+
+    <div class="popup" id="incomePopup">
+        <span class="close" onclick="closePopup('incomePopup')">✖</span>
+        <h2 class="mmm">ADD INCOME</h2>
+        <input type="date" id="date"><br>
+        <input type="text" id="incomeDescription" placeholder="Description"><br>
+        <input type="number" id="incomeAmount" placeholder="Amount"><br>
+
+        <select id="incomeCurrency">
+          <option value="Rupee">RUPEE</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+        </select><br>
+        <button onclick="addIncomeValue()"> Add</button>
+        <button class="reset-btn" onclick="resetForm('incomePopup')"> Reset</button>
+      </div>
+
+      <div class="popup" id="expensePopup">
+        <span class="close" onclick="closePopup('expensePopup')">✖</span>
+        <h2 class="mmm">ADD EXPENSE</h2>
+        <input type="date" id="date"><br>
+        <input type="text" id="expenseDescription" placeholder="Description"><br>
+        <input type="number" id="expenseAmount" placeholder="Amount"><br>
+        
+        <select id="expenseCategory">
+          <option id="food" value="Food">FOOD</option>
+          <option id="transportation" value="Transportation">TRANSPORT</option>
+          <option id="entertainment" value="Entertainment">BEAUTY</option>
+          <option id="utilities" value="Utilities">HEALTH</option>
+          <option id="education" value="Education">EDUCATION</option>
+          <option id="other" value="Other">OTHERS</option>
+        </select><br>
+        <select id="expenseCurrency">
+          <option value="Rupee">RUPEE</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+        </select><br>
+        <button onclick="addExpense()">Add</button>
+        <button class="reset-btn" onclick="resetForm('expensePopup')">Reset</button>
+      </div>
+
+</dialog>
+<h2>Items List</h2>
+    <div id="itemsList" class="list-container"></div>
+
+<script src="updated home.js"></script>
+
+</body>
+</html>
